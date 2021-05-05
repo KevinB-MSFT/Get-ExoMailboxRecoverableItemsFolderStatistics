@@ -31,7 +31,7 @@
 #Creates a hash table to collect and gather all of the results
 $ColRecords = @()
 #Gets all Mailboxes and returns relevant properties 
-$Mbxs = Get-EXOMailbox -Properties primarysmtpaddress,IssueWarningQuota,ProhibitSendQuota,ProhibitSendReceiveQuota,RecoverableItemsQuota,RecoverableItemsWarningQuota,CalendarLoggingQuota,ArchiveQuota,ArchiveWarningQuota,ArchiveStatus,ArchiveState,AutoExpandingArchiveEnabled | select primarysmtpaddress,IssueWarningQuota,ProhibitSendQuota,ProhibitSendReceiveQuota,RecoverableItemsQuota,RecoverableItemsWarningQuota,CalendarLoggingQuota,ArchiveQuota,ArchiveWarningQuota,ArchiveStatus,ArchiveState,AutoExpandingArchiveEnabled
+$Mbxs = Get-EXOMailbox -ResultSize unlimited -Properties primarysmtpaddress,IssueWarningQuota,ProhibitSendQuota,ProhibitSendReceiveQuota,RecoverableItemsQuota,RecoverableItemsWarningQuota,CalendarLoggingQuota,ArchiveQuota,ArchiveWarningQuota,ArchiveStatus,ArchiveState,AutoExpandingArchiveEnabled | select primarysmtpaddress,IssueWarningQuota,ProhibitSendQuota,ProhibitSendReceiveQuota,RecoverableItemsQuota,RecoverableItemsWarningQuota,CalendarLoggingQuota,ArchiveQuota,ArchiveWarningQuota,ArchiveStatus,ArchiveState,AutoExpandingArchiveEnabled
 
 #Loops through all of the mailboxes and gets their Recoverable Items Folder size
 foreach ($Mbx in $Mbxs)
